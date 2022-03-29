@@ -16,11 +16,6 @@ const books = [
     },
 ];
 
-const authors = [
-    {
-        id:0,
-        firstName:"Feodor"
-    }
-]
 
-module.exports = books, authors;
+
+module.exports = books;
