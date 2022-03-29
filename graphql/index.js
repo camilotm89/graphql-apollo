@@ -21,6 +21,8 @@ const typeDefs = gql`
         books: [Book]
         book(id: Int!): Book
         updateBook(id: Int! title: String publicationYear: Int): Book
+        booksByTitle(title: String!):[Book]
+        booksByYear(publicationYear: Int!):[Book]
     }
 
     type Mutation{
@@ -40,6 +42,13 @@ const resolvers = {
         async book(_, {id}) {
             return await books.find((book) => book.id === id);
         },
+        async booksByTitle(_,{title}){
+            return await books.filter((book) => book.title.includes(title));
+        },
+        async booksByYear(_,{publicationYear}){
+            return await books.filter(book => book.publicationYear === publicationYear);
+        }
+
         
     },
 
