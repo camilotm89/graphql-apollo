@@ -16,4 +16,11 @@ const books = [
     },
 ];
 
-module.exports = books;
+const authors = [
+    {
+        id:0,
+        firstName:"Feodor"
+    }
+]
+
+module.exports = books, authors;
