@@ -1,8 +1,9 @@
-const books = require('../data');
+const {books, authors} = require('../data');
 
 
 const resolvers = {
     Query: {
+        //BOOKS
         async books(_,args){
             return await books;
         },
@@ -18,7 +19,11 @@ const resolvers = {
         //AUTHORS
         async authors(_,args){
             return await authors;
-        }
+        },
+        //PUBLISHERS
+        async publishers(_,args){
+            return await publishers;
+        },
 
         
     },

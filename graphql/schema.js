@@ -21,6 +21,12 @@ const typeDefs = gql`
         lastName: String
         country: String
     }
+
+    type Publisher{
+        id: Int!
+        name: String!
+        foundationYear: Int
+    }
     
     
     type Query{
