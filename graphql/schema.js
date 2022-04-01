@@ -13,6 +13,7 @@ const typeDefs = gql`
     synopsis: String
     genres: String
     publicationYear: Int
+    author: Author
     }
 
     type Author{
@@ -36,11 +37,13 @@ const typeDefs = gql`
         booksByTitle(title: String!):[Book]
         booksByYear(publicationYear: Int!):[Book]
         authors: [Author]
+        publishers: [Publisher]
     }
 
     type Mutation{
         createBook(title: String!): Boolean
         updateBook(id: Int! title: String publicationYear: Int): Book
+        createAuthor(firstName: String! lastName:String!): Boolean
     }
 
 `;

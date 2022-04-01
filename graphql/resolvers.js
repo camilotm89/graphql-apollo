@@ -16,6 +16,7 @@ const resolvers = {
         async booksByYear(_,{publicationYear}){
             return await books.filter(book => book.publicationYear === publicationYear);
         },
+        
         //AUTHORS
         async authors(_,args){
             return await authors;
@@ -26,6 +27,13 @@ const resolvers = {
         },
 
         
+    },
+    Book: {
+        author: ({author}) => {
+            return authors.find(a => {
+                return a.id === author
+            })
+        }
     },
 
     Mutation: {
@@ -43,7 +51,16 @@ const resolvers = {
             if(!book) return null;
             const newData = {... book, title: args.title, publicationYear: args.publicationYear}
             books[args.id] = newData;
-        }
+        },
+        async createAuthor(_, {firstName, lastName}){
+            let newAuthor = {
+                id : authors.length,
+                firstName,
+                lastName,
+            };
+
+            return await authors.push(newAuthor);
+        },
         
     }
 };
