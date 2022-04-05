@@ -14,7 +14,8 @@ const books = [
     {
         id:2,
         title:"la metamorfosis",
-        publicationYear:1915
+        publicationYear:1915,
+        publisher: 0
     },
 ];
 
@@ -29,7 +30,20 @@ const authors = [
         firstName: "Jose",
         lastName: "Saramago"
     },
+];
+
+const publishers = [
+    {
+        id:0,
+        name: "Alianza Editorial",
+        foundationYear:1966
+    },
+    {
+        id:1,
+        name: "Cam Editorial",
+        foundationYear:1989
+    }
 ]
 
 
-module.exports = {books, authors, };
+module.exports = {books, authors, publishers};

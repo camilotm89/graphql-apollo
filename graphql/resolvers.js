@@ -1,4 +1,4 @@
-const {books, authors} = require('../data');
+const {books, authors, publishers} = require('../data');
 
 
 const resolvers = {
@@ -21,9 +21,15 @@ const resolvers = {
         async authors(_,args){
             return await authors;
         },
+        async author(_, {id}) {
+            return await authors.find((author) => author.id === id);
+        },
         //PUBLISHERS
         async publishers(_,args){
             return await publishers;
+        },
+        async publisher(_, {id}) {
+            return await publishers.find((publisher) => publisher.id === id);
         },
 
         
@@ -33,8 +39,14 @@ const resolvers = {
             return authors.find(a => {
                 return a.id === author
             })
+        },
+        publisher: ({publisher}) => {
+            return publishers.find(a => {
+                return a.id === publisher
+            })
         }
     },
+    
 
     Mutation: {
         async createBook(_, {title, publicationYear}){
