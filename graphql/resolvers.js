@@ -1,6 +1,11 @@
 const {books, authors, publishers} = require('../data');
 
 
+const {User} = require('../models/Users');
+const {Book} = require('../models/Books');
+const bookSchema = require('../models/Books');
+
+
 const resolvers = {
     Query: {
         //BOOKS
@@ -55,8 +60,10 @@ const resolvers = {
                 title,
                 publicationYear,
             };
-
+            nBook = new bookSchema(newBook);
+            await nBook.save();
             return await books.push(newBook);
+
         },
         updateBook: (root, args) => {
             const book = books.find(book => book.id === args.id)
