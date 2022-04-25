@@ -22,7 +22,10 @@ exports = connect();
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://camilo:q1w2e3@clustermaestrik.43cej.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+const client = new MongoClient(uri, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    serverApi: ServerApiVersion.v1 });
 client.connect().then(()=>{
     console.log("DB is connected...")
 }).catch(err => {

@@ -1,3 +1,4 @@
+const { default: mongoose } = require('mongoose');
 const { Schema, model } = require('mongoose');
 
 const bookSchema = new Schema({
@@ -10,5 +11,5 @@ const bookSchema = new Schema({
     publisher: Number
 
 })
-console.log(bookSchema);
-module.exports=bookSchema;
+
+module.exports= model('book', bookSchema);
